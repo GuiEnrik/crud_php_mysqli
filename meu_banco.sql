@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS cliente (
     nome VARCHAR(100) NOT NULL,
     endereco VARCHAR(255) NOT NULL,
     telefone VARCHAR(15) NOT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Insere alguns dados de exemplo na tabela
 INSERT INTO cliente (cliente_cpf, nome, endereco, telefone) VALUES
