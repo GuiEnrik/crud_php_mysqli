@@ -9,7 +9,12 @@ $telefone = $_POST['in_telefone'];
 
 // Monta a consulta SQL para inserir um novo cliente
 $sql = "INSERT INTO cliente (cliente_cpf, nome, endereco, telefone) VALUES ('$cliente_cpf', '$nome', '$endereco', '$telefone')";
-mysqli_query($conexao, $sql); // Executa a consulta
+$result = mysqli_query($conexao, $sql); // Executa a consulta
+
+// Verifica se a consulta foi bem-sucedida
+if (!$result) {
+  die("Erro na inserção: " . mysqli_error($conexao));
+}
 
 mysqli_close($conexao); // Fecha a conexão com o banco de dados
 header("Location: index.php"); // Redireciona para a página principal

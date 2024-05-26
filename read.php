@@ -13,6 +13,12 @@
 
     // Executa a consulta SQL para selecionar todos os clientes
     $result = mysqli_query($conexao, "SELECT * FROM cliente ORDER BY nome");
+
+    // Verifica se a consulta foi bem-sucedida
+    if (!$result) {
+        die("Erro na consulta: " . mysqli_error($conexao));
+    }
+
     // Itera sobre os resultados da consulta
     while ($linha = mysqli_fetch_assoc($result)) {
     ?>

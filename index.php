@@ -6,6 +6,12 @@ if (isset($_GET["cliente_cpf"])) {
     // Monta a consulta SQL para buscar os dados do cliente com o CPF especificado
     $query = "SELECT * FROM cliente WHERE cliente_cpf = " . $_GET["cliente_cpf"];
     $result = mysqli_query($conexao, $query); // Executa a consulta
+
+    // Verifica se a consulta foi bem-sucedida
+    if (!$result) {
+        die("Erro na consulta: " . mysqli_error($conexao));
+    }
+
     $dado = mysqli_fetch_assoc($result); // Obtém o resultado da consulta
 
     // Atribui os valores retornados da consulta às variáveis

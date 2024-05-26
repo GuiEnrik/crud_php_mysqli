@@ -9,7 +9,12 @@ $telefone = $_POST['in_telefone'];
 
 // Monta a consulta SQL para atualizar os dados do cliente
 $sql = "UPDATE cliente SET nome='$nome', endereco='$endereco', telefone='$telefone' WHERE cliente_cpf='$cliente_cpf'";
-mysqli_query($conexao, $sql); // Executa a consulta
+$result = mysqli_query($conexao, $sql); // Executa a consulta
+
+// Verifica se a consulta foi bem-sucedida
+if (!$result) {
+  die("Erro na atualização: " . mysqli_error($conexao));
+}
 
 mysqli_close($conexao); // Fecha a conexão com o banco de dados
 header("Location: index.php"); // Redireciona para a página principal
