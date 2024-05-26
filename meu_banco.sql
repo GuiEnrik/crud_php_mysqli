@@ -1,6 +1,3 @@
-CREATE DATABASE IF NOT EXISTS meu_banco;
-USE meu_banco;
-
 CREATE TABLE IF NOT EXISTS cliente (
     cliente_cpf VARCHAR(11) NOT NULL PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
