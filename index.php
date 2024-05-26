@@ -1,11 +1,14 @@
 <?php
-include_once("conecta.php");
+include_once("conecta.php"); // Inclui o arquivo de conexão com o banco de dados
 
+// Verifica se o parâmetro 'cliente_cpf' foi passado via GET
 if (isset($_GET["cliente_cpf"])) {
+    // Monta a consulta SQL para buscar os dados do cliente com o CPF especificado
     $query = "SELECT * FROM cliente WHERE cliente_cpf = " . $_GET["cliente_cpf"];
-    $result = mysqli_query($conexao, $query);
-    $dado = mysqli_fetch_assoc($result);
+    $result = mysqli_query($conexao, $query); // Executa a consulta
+    $dado = mysqli_fetch_assoc($result); // Obtém o resultado da consulta
 
+    // Atribui os valores retornados da consulta às variáveis
     $cpf = $dado["cliente_cpf"];
     $nome = $dado["nome"];
     $endereco = $dado["endereco"];

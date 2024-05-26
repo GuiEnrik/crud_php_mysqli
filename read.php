@@ -9,9 +9,11 @@
     </tr>
 
     <?php
-    include_once("conecta.php");
+    include_once("conecta.php"); // Inclui o arquivo de conexão com o banco de dados
 
+    // Executa a consulta SQL para selecionar todos os clientes
     $result = mysqli_query($conexao, "SELECT * FROM cliente ORDER BY nome");
+    // Itera sobre os resultados da consulta
     while ($linha = mysqli_fetch_assoc($result)) {
     ?>
         <tr>
@@ -25,6 +27,6 @@
     <?php
     }
 
-    mysqli_close($conexao);
+    mysqli_close($conexao); // Fecha a conexão com o banco de dados
     ?>
 </table>

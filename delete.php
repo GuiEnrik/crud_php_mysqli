@@ -1,9 +1,9 @@
 <?php
-include("conecta.php");
+include("conecta.php"); // Inclui o arquivo de conexão com o banco de dados
 
-$cliente_cpf = $_GET['cliente_cpf'];
-$sql = "DELETE FROM cliente WHERE cliente_cpf='$cliente_cpf'";
-mysqli_query($conexao, $sql);
+$cliente_cpf = $_GET['cliente_cpf']; // Obtém o CPF do cliente a ser deletado via GET
+$sql = "DELETE FROM cliente WHERE cliente_cpf='$cliente_cpf'"; // Monta a consulta SQL para deletar o cliente
+mysqli_query($conexao, $sql); // Executa a consulta
 
-mysqli_close($conexao);
-header("Location: index.php");
+mysqli_close($conexao); // Fecha a conexão com o banco de dados
+header("Location: index.php"); // Redireciona para a página principal
